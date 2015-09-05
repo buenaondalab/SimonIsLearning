@@ -12,7 +12,6 @@ public class TableReader extends HttpServlet {
 	
 	private DbDataJDBC db00 = new DbDataJDBC();
 	
-	// Ho rinominato da s a movies... codice un po' + leggibile..
 	private List<Movie> movies; 
 
 	 private static final String PAGE_TOP = ""
@@ -42,16 +41,13 @@ public class TableReader extends HttpServlet {
 		    
 		    movies = db00.getAllMovies();
 
-		     // visto che in DbDataJDBC ho cambiato qualcosina...
 		     if(movies.isEmpty()){
-//			 if  (movies == null) {
 				 out.println("Non ci sono elementi nella tabella.");
 			 }
 			 else {
 				 out.println("<table>");
 				 out.println(TH);
 				 
-				 // OTTIMO!
 				 for (Movie m : movies){
 					 out.print("<tr><td>"+m.getId()+"</td><td>"+m.getTitle()+"</td><td>"+m.getDesc()+"</td>");
 				 }
